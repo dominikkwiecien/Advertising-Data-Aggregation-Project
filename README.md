@@ -26,7 +26,7 @@ The primary objectives of this project are:
 
 Using a Common Table Expression (CTE), the data from both sources is combined. The `media_source` column is manually added to distinguish between the platforms:
 
-\`\`\`sql
+```sql
 WITH combined_ads AS (
     SELECT 
         ad_date, 
@@ -50,13 +50,13 @@ WITH combined_ads AS (
         value 
     FROM facebook_ads_basic_daily
 )
-\`\`\`
+```
 
 #### Step 2: Metric Aggregation
 
 The consolidated data is then aggregated to provide daily totals for each platform. This includes summing up the spend, impressions, clicks, and conversion value:
 
-\`\`\`sql
+```sql
 SELECT 
     ad_date, 
     media_source, 
@@ -67,7 +67,7 @@ SELECT
 FROM combined_ads
 GROUP BY ad_date, media_source
 ORDER BY ad_date, media_source
-\`\`\`
+```
 
 ### 3. Output
 
@@ -85,6 +85,3 @@ To run this project:
 
 This project showcases the power of SQL in data consolidation and aggregation across multiple sources. By applying CTEs and the UNION ALL operator, we effectively combined and analyzed key advertising metrics from Google Ads and Facebook Ads, enabling data-driven decisions.
 
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
